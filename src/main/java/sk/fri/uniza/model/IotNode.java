@@ -2,10 +2,17 @@ package sk.fri.uniza.model;
 
 import javax.persistence.*;
 
+//@Entity
+//@Table(name = "houseHold")
 public class IotNode {
 
+   // @OneToMany(mappedBy = "houseHold")
     private Long id;
+
+
     private String Name;
+
+
     private HouseHold houseHold;
 
     public Long getId() {
