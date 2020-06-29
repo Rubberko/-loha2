@@ -1,18 +1,31 @@
 package sk.fri.uniza.model;
 
-import javax.persistence.*;
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
-//@Entity
-//@Table(name = "houseHold")
+import javax.persistence.*;
+import javax.validation.Valid;
+
+@org.hibernate.annotations.NamedQueries({
+        @org.hibernate.annotations.NamedQuery(name = "IotNode_findAll",
+                query = "from IotNode"),
+
+})
+
+@Entity
 public class IotNode {
 
-   // @OneToMany(mappedBy = "houseHold")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(example = "1")
     private Long id;
 
-
+    @NotEmpty
+    @ApiModelProperty(example = "Marek")
     private String Name;
 
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "household_id", nullable = false)
     private HouseHold houseHold;
 
     public Long getId() {
