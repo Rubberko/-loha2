@@ -21,6 +21,7 @@ public class IoTNodeResource {
     public IoTNodeResource(IotNodeDAO iotNodeDAO) {
         this.iotNodeDAO = iotNodeDAO;
     }
+
     @POST /*JAX-RS*/
     @UnitOfWork //Otvorí novú hibernate session // Dropwizard
     @ApiOperation(value = "Pridanie novej IoTNode")
